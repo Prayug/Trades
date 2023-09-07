@@ -53,10 +53,11 @@ const Register = () => {
     setErrMsg("");
   }, [user, pwd, matchPwd]);
 
-  return{}
-  <section>
-    <p></p>
-  </section>;
+  return (
+    <section>
+      <p></p>
+    </section>
+  );
 };
 
 export default Register;
