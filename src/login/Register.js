@@ -19,7 +19,7 @@ const Register = () => {
   const [userFocus, setUserFocus] = useState(false);
 
   const [pwd, setPWD] = useState("");
-  const [validPwd, setValidPWD] = useState(false);
+  const [validPwd, setValidPwd] = useState(false);
   const [pwdFocus, setPwdFocus] = useState(false);
 
   const [matchPwd, setMatchPwd] = useState("");
@@ -44,9 +44,19 @@ const Register = () => {
     const result = PWD_REGEX.test(pwd);
     console.log(result);
     console.log(pwd);
-  })
+    setValidPwd(result);
+    const match = pwd === matchPwd;
+    setValidMatch(match);
+  }, [pwd, matchPwd]);
 
-  return <div></div>;
+  useEffect(() => {
+    setErrMsg("");
+  }, [user, pwd, matchPwd]);
+
+  return{}
+  <section>
+    <p></p>
+  </section>;
 };
 
 export default Register;
