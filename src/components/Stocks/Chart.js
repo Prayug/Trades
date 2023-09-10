@@ -9,15 +9,15 @@ import {
   AreaChart,
   Tooltip,
 } from "recharts";
-import ThemeContext from "../context/ThemeContext";
-import StockContext from "../context/StockContext";
-import { fetchHistoricalData } from "../utils/api/stock-api";
+import ThemeContext from "../../context/ThemeContext";
+import StockContext from "../../context/StockContext";
+import { fetchHistoricalData } from "/Users/prayugsigdel/Coding/Trades/src/utils/api/stock-api.js";
 import {
   createDate,
   convertDateToUnixTimestamp,
   convertUnixTimestampToDate,
-} from "../utils/helpers/date-helper";
-import { chartConfig } from "../constants/config";
+} from "/Users/prayugsigdel/Coding/Trades/src/utils/helpers/date-helper.js";
+import { chartConfig } from "/Users/prayugsigdel/Coding/Trades/src/constants/config.js";
 
 const Chart = () => {
   const [filter, setFilter] = useState("1W");

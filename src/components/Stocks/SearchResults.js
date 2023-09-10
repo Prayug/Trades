@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import StockContext from "../context/StockContext";
-import ThemeContext from "../context/ThemeContext";
+import StockContext from "/Users/prayugsigdel/Coding/Trades/src/context/StockContext.js";
+import ThemeContext from "/Users/prayugsigdel/Coding/Trades/src/context/ThemeContext.js";
 
 const SearchResults = ({ results }) => {
   const { darkMode } = useContext(ThemeContext);

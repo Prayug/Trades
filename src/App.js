@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import Dashboard from "./components/Dashboard";
+import Dashboard from "./components/Stocks/Dashboard";
 import StockContext from "./context/StockContext";
 import ThemeContext from "./context/ThemeContext";
 

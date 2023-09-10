@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import Card from "./Card";
-import ThemeContext from "../context/ThemeContext";
+import ThemeContext from "/Users/prayugsigdel/Coding/Trades/src/context/ThemeContext.js";
 
 const Details = ({ details }) => {
   const { darkMode } = useContext(ThemeContext);

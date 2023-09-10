@@ -1,11 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
-import ThemeContext from "../context/ThemeContext";
-import Overview from "./Overview";
-import Details from "./Details";
+import ThemeContext from "../../context/ThemeContext";
+import Overview from "/Users/prayugsigdel/Coding/Trades/src/components/Stocks/Overview.js";
+import Details from "/Users/prayugsigdel/Coding/Trades/src/components/Stocks/Details.js";
 import Chart from "./Chart";
 import Header from "./Header";
-import StockContext from "../context/StockContext";
-import { fetchStockDetails, fetchQuote } from "../utils/api/stock-api";
+import StockContext from "../../context/StockContext";
+import {
+  fetchStockDetails,
+  fetchQuote,
+} from "/Users/prayugsigdel/Coding/Trades/src/utils/api/stock-api.js";
 
 const Dashboard = () => {
   const { darkMode } = useContext(ThemeContext);
