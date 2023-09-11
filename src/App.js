@@ -3,6 +3,7 @@ import "./App.css";
 import Dashboard from "./components/Stocks/Dashboard";
 import StockContext from "./context/StockContext";
 import ThemeContext from "./context/ThemeContext";
+import Signup from "./components/signUp/Signup";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -11,6 +12,8 @@ function App() {
   return (
     <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
       <StockContext.Provider value={{ stockSymbol, setStockSymbol }}>
+      <Signup />
+
         <Dashboard />
       </StockContext.Provider>
     </ThemeContext.Provider>
