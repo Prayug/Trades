@@ -15,7 +15,7 @@ export default function Signup() {
             <Form.Group id="email">
               <Form.Label>Email</Form.Label>
               <Form.Control
-                className="border-2 border-gray-600 rounded-lg left-100 right-0"
+                className="border-2 border-gray-600 rounded-lg left-100 right-0 top-0"
                 type="email"
                 ref={emailRef}
                 required
