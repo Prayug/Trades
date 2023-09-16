@@ -15,7 +15,7 @@ function App() {
 
       <StockContext.Provider value={{ stockSymbol, setStockSymbol }}>
         <Dashboard />
-      </StockContext.Provider>
+      </StockContext.Provider> 
     </ThemeContext.Provider>
   );
 }

@@ -16,14 +16,15 @@ const Details = ({ details }) => {
   };
 
   const convertNumberToUnit = (number) => {
+    if (number === undefined) {
+      return "N/A";
+    }
+
     if (number >= 1e6) {
-      // Convert to trillions
       return (number / 1e6).toFixed(2) + "T";
     } else if (number >= 1e3) {
-      // Convert to billions
       return (number / 1e3).toFixed(2) + "B";
     } else {
-      // Convert to millions
       return number.toFixed(2) + "M";
     }
   };
