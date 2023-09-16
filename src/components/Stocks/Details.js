@@ -15,8 +15,17 @@ const Details = ({ details }) => {
     finnhubIndustry: "Industry",
   };
 
-  const convertMillionToBillion = (number) => {
-    return (number / 1000).toFixed(2);
+  const convertNumberToUnit = (number) => {
+    if (number >= 1e6) {
+      // Convert to trillions
+      return (number / 1e6).toFixed(2) + "T";
+    } else if (number >= 1e3) {
+      // Convert to billions
+      return (number / 1e3).toFixed(2) + "B";
+    } else {
+      // Convert to millions
+      return number.toFixed(2) + "M";
+    }
   };
 
   return (
@@ -32,7 +41,7 @@ const Details = ({ details }) => {
               <span>{detailsList[item]}</span>
               <span className="font-bold">
                 {item === "marketCapitalization"
-                  ? `${convertMillionToBillion(details[item])}B`
+                  ? convertNumberToUnit(details[item])
                   : details[item]}
               </span>
             </li>

@@ -11,7 +11,7 @@ function App() {
 
   return (
     <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
-      <Signup />
+      {/* <Signup /> */}
 
       <StockContext.Provider value={{ stockSymbol, setStockSymbol }}>
         <Dashboard />
