@@ -1,10 +1,26 @@
 import React, { useRef, useState } from "react";
 import { Form, Button, Card } from "react-bootstrap";
+// import { useState } from "react";
+import Dashboard from "../Stocks/Dashboard";
+import StockContext from "../../context/StockContext";
+import ThemeContext from "../../context/ThemeContext";
+// import Signup from "./components/signUp/Signup";
+import { Container } from "react-bootstrap";
 
 export default function Signup() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
+  const [showDashboard, setShowDashboard] = useState(false); // State to control visibility
+  const [darkMode, setDarkMode] = useState(false);
+  const [stockSymbol, setStockSymbol] = useState("MSFT");
+
+
+  const handleSignupButtonClick = () => {
+    // You can add form validation logic here
+    // For simplicity, let's just show the Dashboard on button click
+    setShowDashboard(true);
+  };
 
   return (
     <>
@@ -15,7 +31,7 @@ export default function Signup() {
             <Form.Group id="email">
               <Form.Label>Email</Form.Label>
               <Form.Control
-                className="border-2 border-gray-600 rounded-lg left-100 right-0 top-0 right-0"
+                className="border-2 border-gray-600 rounded-lg left-100"
                 type="email"
                 ref={emailRef}
                 required
@@ -29,7 +45,11 @@ export default function Signup() {
               <Form.Label>Password Confirmation</Form.Label>
               <Form.Control type="password" ref={passwordConfirmRef} required />
             </Form.Group>
-            <Button className="w-100" type="Submit">
+            <Button
+              className="w-100"
+              type="Submit"
+              onClick={handleSignupButtonClick}
+            >
               Sign Up
             </Button>
           </Form>
@@ -38,6 +58,14 @@ export default function Signup() {
       <div className="w-100 text-center mt-2">
         Already have an account? Log In
       </div>
+
+      {showDashboard && (
+        <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
+          <StockContext.Provider value={{ stockSymbol, setStockSymbol }}>
+            <Dashboard />
+          </StockContext.Provider>
+        </ThemeContext.Provider>
+      )}
     </>
   );
 }
