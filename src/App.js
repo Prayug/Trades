@@ -7,25 +7,10 @@ import Signup from "./components/signUp/Signup";
 import { Container } from "react-bootstrap";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
-  const [stockSymbol, setStockSymbol] = useState("MSFT");
-  const [showDashboard, setShowDashboard] = useState(false);
-
-  const handleSignupButtonClick = () => {
-    setShowDashboard(true);
-  };
 
   return (
     <Container>
-      {showDashboard ? (
-        <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
-          <StockContext.Provider value={{ stockSymbol, setStockSymbol }}>
-            <Dashboard />
-          </StockContext.Provider>
-        </ThemeContext.Provider>
-      ) : (
-        <Signup onSignupButtonClick={handleSignupButtonClick} />
-      )}
+        <Signup />
     </Container>
   );
 }

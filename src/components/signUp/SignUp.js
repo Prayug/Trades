@@ -11,14 +11,12 @@ export default function Signup() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
-  const [showDashboard, setShowDashboard] = useState(false); // State to control visibility
+  const [showDashboard, setShowDashboard] = useState(false); 
   const [darkMode, setDarkMode] = useState(false);
   const [stockSymbol, setStockSymbol] = useState("MSFT");
 
 
   const handleSignupButtonClick = () => {
-    // You can add form validation logic here
-    // For simplicity, let's just show the Dashboard on button click
     setShowDashboard(true);
   };
 
