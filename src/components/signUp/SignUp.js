@@ -1,11 +1,11 @@
 import React, { useRef, useState } from "react";
 import { Form, Button, Card } from "react-bootstrap";
-// import { useState } from "react";
 import Dashboard from "../Stocks/Dashboard";
 import StockContext from "../../context/StockContext";
 import ThemeContext from "../../context/ThemeContext";
 // import Signup from "./components/signUp/Signup";
 import { Container } from "react-bootstrap";
+import {useAuth} from '../../context/AuthContext.js';
 
 export default function Signup() {
   const emailRef = useRef();
@@ -46,7 +46,7 @@ export default function Signup() {
             <Button
               className="w-100"
               type="Submit"
-              onClick={handleSignupButtonClick}
+              // onClick={handleSignupButtonClick}
             >
               Sign Up
             </Button>
