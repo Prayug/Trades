@@ -5,16 +5,27 @@ import StockContext from "../../context/StockContext";
 import ThemeContext from "../../context/ThemeContext";
 // import Signup from "./components/signUp/Signup";
 import { Container } from "react-bootstrap";
-import {useAuth} from '../../context/AuthContext.js';
+import { useAuth } from "../../context/AuthContext.js";
 
 export default function Signup() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
-  const [showDashboard, setShowDashboard] = useState(false); 
+  const [showDashboard, setShowDashboard] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
   const [stockSymbol, setStockSymbol] = useState("MSFT");
+  const { signup } = useAuth();
+  const [error, setError] = useState("");
 
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+      return setError('Passwords do not match'); 
+    }
+
+    signup(emailRef.current.value, passwordRef.current.value);
+  }
 
   const handleSignupButtonClick = () => {
     setShowDashboard(true);
