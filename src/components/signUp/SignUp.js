@@ -14,7 +14,8 @@ export default function Signup() {
   const [showDashboard, setShowDashboard] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
   const [stockSymbol, setStockSymbol] = useState("MSFT");
-  const { signup } = useAuth();
+  const { signup 
+  } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
