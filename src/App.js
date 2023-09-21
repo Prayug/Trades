@@ -6,6 +6,7 @@ import ThemeContext from "./context/ThemeContext";
 import Signup from "./components/signUp/Signup";
 import { Container } from "react-bootstrap";
 import { AuthProvider } from "./context/AuthContext";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   const [showSignup, setShowSignup] = useState(true); // State to control Signup visibility
@@ -19,16 +20,21 @@ function App() {
   };
 
   return (
-    <AuthProvider>
-      <Container
-        className="d-flex align-items-center justify-content-center"
-        style={{ minHeight: "100vh" }}
-      >
-        <div className="w-100" style={{ maxWidth: "400px" }}>
-          <Signup onSignupButtonClick={handleSignupButtonClick} />
-        </div>
-      </Container>
-    </AuthProvider>
+    <Container
+      className="d-flex align-items-center justify-content-center"
+      style={{ minHeight: "100vh" }}
+    >
+      <div className="w-100" style={{ maxWidth: "400px" }}>
+        <Router>
+          <AuthProvider>
+            <Switch>
+              <Route path="/signup" component={Signup} />
+            </Switch>
+          </AuthProvider>
+        </Router>
+        <Signup />
+      </div>
+    </Container>
   );
 }
 
