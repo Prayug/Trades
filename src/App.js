@@ -7,7 +7,6 @@ import Signup from "./components/signUp/Signup";
 import { Container } from "react-bootstrap";
 import { AuthProvider } from "./context/AuthContext";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import {signupDashboard} from "./components/signUp/SignupDashboard";
 
 function App() {
   const [showSignup, setShowSignup] = useState(true); // State to control Signup visibility
@@ -29,7 +28,7 @@ function App() {
         <Router>
           <AuthProvider>
             <Switch>
-              <Route exact path="/" component={signupDashboard}/>
+              <Route exact path="/" component={Dashboard}/>
               <Route path="/signup" component={Signup}/>
             </Switch>
           </AuthProvider>
