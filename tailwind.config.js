@@ -1,4 +1,5 @@
-/** @type {import('tailwindcss').Config} */
+const plugin = require("tailwindcss/plugin");
+
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
@@ -7,11 +8,11 @@ module.exports = {
         white: "white",
         none: "none",
       },
-      borderWidth: {
-        1: "1px",
-      },
       fontFamily: {
         quicksand: ["Quicksand", "sans-serif"],
+      },
+      borderWidth: {
+        1: "1px",
       },
       gridTemplateRows: {
         7: "repeat(7, minmax(0, 1fr))",

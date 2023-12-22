@@ -1,44 +1,19 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./App.css";
-import Dashboard from "./components/Stocks/Dashboard";
+import Dashboard from "./components/Dashboard";
 import StockContext from "./context/StockContext";
 import ThemeContext from "./context/ThemeContext";
-import Signup from "./components/signUp/Signup";
-import { Container } from "react-bootstrap";
-import { AuthProvider } from "./context/AuthContext";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Login from "./components/signUp/Login";
 
 function App() {
-  const [showSignup, setShowSignup] = useState(true); // State to control Signup visibility
   const [darkMode, setDarkMode] = useState(false);
   const [stockSymbol, setStockSymbol] = useState("MSFT");
 
-  const handleSignupButtonClick = () => {
-    // You can add more logic here if needed
-    // For simplicity, let's just hide the Signup component on button click
-    setShowSignup(false);
-  };
-
   return (
-    <Container
-      className="d-flex align-items-center justify-content-center"
-      style={{ minHeight: "100vh" }}
-    >
-      <div className="w-100" style={{ maxWidth: "400px" }}>
-        <Router>
-          <AuthProvider>
-            <Switch>
-              {/* <PrivateRoute exact path="/" component={Dashboard} /> */}
-              {/* <PrivateRoute path="/update-profile" component={UpdateProfile} /> */}
-              <Route path="/signup" component={Signup} />
-              <Route path="/login" component={Login} />
-              <Route exact path="/" component={Dashboard} />
-            </Switch>
-          </AuthProvider>
-        </Router>
-      </div>
-    </Container>
+    <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
+      <StockContext.Provider value={{ stockSymbol, setStockSymbol }}>
+        <Dashboard />
+      </StockContext.Provider>
+    </ThemeContext.Provider>
   );
 }
 
